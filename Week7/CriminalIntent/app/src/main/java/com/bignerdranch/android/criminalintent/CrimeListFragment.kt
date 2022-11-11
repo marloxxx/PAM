@@ -71,13 +71,15 @@ class CrimeListFragment : Fragment() {
         }
 
         override fun onClick(v: View?) {
-            Toast.makeText(context, "${crime.title} pressed!", Toast.LENGTH_SHORT.show())
+            Toast.makeText(context, "${crime.title} pressed!", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private inner class CrimeAdapter(var crimes: List<Crime>) : RecyclerView.Adapter<CrimeHolder> {
+    private inner class CrimeAdapter(var crimes: List<Crime>) :
+        RecyclerView.Adapter<CrimeHolder>() {
+
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CrimeHolder {
-            val view = LayoutInflater.inflate(R.layout.list_item_crime, parent, false)
+            val view = layoutInflater.inflate(R.layout.list_item_crime, parent, false)
             return CrimeHolder(view)
         }
 

@@ -89,8 +89,8 @@ class TakePictureActivity : Activity(), View.OnClickListener {
         if(pictureTaken){
             val nextScreenIntent = Intent(this, EnterTextActivity::class.java).apply{
                 putExtra(IMAGE_URI_KEY, selectedPhotoPath)
-                putExtra(BITMAT_WIDTH, pictureImageview.width)
-                putExtra(BITMAT_HEIGHT, pictureImageview.height)
+                putExtra(BITMAP_WIDTH, pictureImageview.width)
+                putExtra(BITMAP_HEIGHT, pictureImageview.height)
             }
             startActivity(nextScreenIntent)
         } else {

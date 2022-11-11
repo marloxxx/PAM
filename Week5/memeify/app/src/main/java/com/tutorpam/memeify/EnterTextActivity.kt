@@ -33,8 +33,8 @@ class EnterTextActivity : Activity(), View.OnClickListener {
         originalImage = true
 
         pictureUri = intent.getParcelableExtra<Uri>(IMAGE_URI_KEY)
-        val bitmapWidth = intent.getIntExtra(BITMAT_WIDTH, 100)
-        val bitmapHeight = intent.getIntExtra(BITMAT_HEIGHT, 100)
+        val bitmapWidth = intent.getIntExtra(BITMAP_WIDTH, 100)
+        val bitmapHeight = intent.getIntExtra(BITMAP_HEIGHT, 100)
 
         pictureUri?.let {
             val selectedImageBitmap =
