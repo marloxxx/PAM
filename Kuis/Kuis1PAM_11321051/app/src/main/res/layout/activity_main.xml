@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+        <Button
+            android:id="@+id/register_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#000000"
+            android:minWidth="200dp"
+            android:text="@string/register" />
+
+        <Button
+            android:id="@+id/login_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#000000"
+            android:minWidth="200dp"
+            android:text="@string/login" />
+
+        <Button
+            android:id="@+id/gmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#000000"
+            android:minWidth="200dp"
+            android:text="@string/gmail" />
+</LinearLayout>
+
