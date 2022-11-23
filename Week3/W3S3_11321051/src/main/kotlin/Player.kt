@@ -1,6 +1,8 @@
+import java.util.*
+
 class Player(_name: String, var _healthPoints: Int, val _isBlessed: Boolean, private val _isImmortal: Boolean) {
     var name = _name
-        get() = field.capitalize()
+        get() = field.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
         private set(value) {
             field = value.trim()
         }

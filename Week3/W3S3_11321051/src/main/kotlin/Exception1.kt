@@ -1,6 +1,7 @@
 fun main(args: Array<String>) {
     var swordsJuggling: Int? = null // deklarasi variabel swordsJuggling bertipe data Int? dengan nilai null
-    val isJugglingProficient = (1..3).shuffled().last() == 3 // deklarasi variabel isJugglingProficient bertipe data Boolean dengan nilai (1..3).shuffled().last() == 3
+    val isJugglingProficient = (1..3).shuffled()
+        .last() == 3 // deklarasi variabel isJugglingProficient bertipe data Boolean dengan nilai (1..3).shuffled().last() == 3
     if (isJugglingProficient) {
         swordsJuggling = 2
     } // jika isJugglingProficient bernilai true maka swordsJuggling akan bernilai 2
