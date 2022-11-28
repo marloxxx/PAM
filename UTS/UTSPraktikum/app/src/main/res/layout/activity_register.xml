@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".RegisterActivity">
+
+    <!--    KTP Number form input text-->
+    <EditText
+        android:id="@+id/nik"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:padding="24dp"
+        tools:text="Username"
+        android:hint="NIK"
+        android:inputType="text"
+        android:autofillHints="" />
+
+    <!--    full name form input text-->
+    <EditText
+        android:id="@+id/fullname"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:padding="24dp"
+        tools:text="Username"
+        android:hint="Full Name"
+        android:inputType="text"
+        android:autofillHints="" />
+
+<!--    phone number form input text-->
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:padding="24dp"
+        tools:text="Username"
+        android:hint="Phone Number"
+        android:inputType="text"
+        android:autofillHints="" />
+
+<!--    username(email) form input text-->
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:padding="24dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:autofillHints="" />
+
+<!--    password form input text-->
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:padding="24dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:autofillHints="" />
+
+    <Button
+        android:id="@+id/register_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#000000"
+        android:minWidth="250dp"
+        android:onClick="register"
+        android:text="Register" />
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#000000"
+        android:minWidth="250dp"
+        android:onClick="login"
+        android:text="Login" />
+</LinearLayout>
+

@@ -5,9 +5,15 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter your name"
-        android:inputType="text" />
+        android:inputType="textEmailAddress"
+        android:maxLines="1" />
+<!--    <EditText-->
+<!--        android:id="@+id/editText"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="Enter your name"-->
+<!--        android:inputType="text" />-->
 </LinearLayout>

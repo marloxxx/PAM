@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <!--    NIM form input text-->
+    <EditText
+        android:id="@+id/nim"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:padding="24dp"
+        tools:text="Username"
+        android:hint="@string/nim"
+        android:inputType="text"
+        android:autofillHints="" />
+
+    <!--    name form input text-->
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:padding="24dp"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/name"
+        android:inputType="text"
+        android:autofillHints="" />
+
+    <!--    Prodi list choice-->
+    <Spinner
+        android:id="@+id/prodi"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:padding="24dp"/>
+
+    <!-- Date of birth input -->
+<!--    when click this button, it will show a calendar to choose the date-->
+    <Button
+        android:id="@+id/birthdate"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="@string/date_of_birth"/>
+
+<!--    blood type list choice-->
+    <Spinner
+        android:id="@+id/bloodtype"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:padding="24dp"/>
+
+    <Button
+        android:id="@+id/register_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#000000"
+        android:minWidth="250dp"
+        android:text="Register" />
+</LinearLayout>
+
