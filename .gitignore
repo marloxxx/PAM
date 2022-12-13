@@ -28,3 +28,5 @@ google-services.json
 
 # Android Profiling
 *.hprof
+*.zip
+Week11/android-kotlin-notifications/
