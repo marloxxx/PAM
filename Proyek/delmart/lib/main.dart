@@ -1,3 +1,7 @@
+import 'package:delmart/ui/pages/forgot.dart';
+import 'package:delmart/ui/pages/home.dart';
+import 'package:delmart/ui/pages/login.dart';
+import 'package:delmart/ui/pages/register.dart';
 import 'package:flutter/material.dart';
 import 'package:delmart/ui/pages/splash.dart';
 
@@ -8,13 +12,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: SplashPage(),
-        ),
-      ),
+      home: const SplashPage(),
+      routes: {
+        '/splash': (context) => const SplashPage(),
+        '/login': (context) => const LoginPage(),
+        '/register': (context) => const RegisterPage(),
+        '/forgot': (context) => const ForgotPage(),
+        '/home': (context) => const HomePage(),
+      },
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:delmart/shared/theme.dart';
 import 'package:delmart/ui/pages/login.dart';
 import 'package:flutter/material.dart';
 
+// this is the onboarding page
 class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage({super.key});
 

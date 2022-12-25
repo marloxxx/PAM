@@ -1,9 +1,12 @@
 import 'package:delmart/shared/theme.dart';
 import 'package:delmart/ui/pages/home.dart';
+import 'package:delmart/ui/widgets/custom_text_form_field.dart';
+import 'package:delmart/ui/widgets/custom_filled_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'login.dart';
 
+// this is the register page
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
 
@@ -51,28 +54,12 @@ class _RegisterPageState extends State<RegisterPage> {
                       key: _formKey,
                       child: Column(children: [
                         // NIK input
-                        TextFormField(
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(
-                              const FaIcon(FontAwesomeIcons.idCard).icon,
-                              color: softGray,
-                            ),
-                            hintText: "NIK",
-                            hintStyle: const TextStyle(
-                              fontSize: 14,
-                              fontFamily: 'Poppins',
-                            ),
-                            enabledBorder: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
-                            focusedBorder: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
+                        CustomTextFormField(
+                          prefixIcon: Icon(
+                            const FaIcon(FontAwesomeIcons.idCard).icon,
+                            color: softGray,
                           ),
+                          hintText: "NIK",
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter your NIK';
@@ -86,28 +73,12 @@ class _RegisterPageState extends State<RegisterPage> {
                           height: 10,
                         ),
                         // name input
-                        TextFormField(
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(
-                              Icons.person,
-                              color: softGray,
-                            ),
-                            hintText: "Name",
-                            hintStyle: const TextStyle(
-                              fontSize: 14,
-                              fontFamily: 'Poppins',
-                            ),
-                            enabledBorder: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
-                            focusedBorder: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
+                        CustomTextFormField(
+                          prefixIcon: Icon(
+                            Icons.person,
+                            color: softGray,
                           ),
+                          hintText: "Name",
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter your name';
@@ -121,28 +92,12 @@ class _RegisterPageState extends State<RegisterPage> {
                           height: 10,
                         ),
                         // email input
-                        TextFormField(
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(
-                              Icons.email,
-                              color: softGray,
-                            ),
-                            hintText: "Email",
-                            hintStyle: const TextStyle(
-                              fontSize: 14,
-                              fontFamily: 'Poppins',
-                            ),
-                            enabledBorder: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
-                            focusedBorder: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
+                        CustomTextFormField(
+                          prefixIcon: Icon(
+                            Icons.email,
+                            color: softGray,
                           ),
+                          hintText: "Email",
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter your email';
@@ -156,28 +111,12 @@ class _RegisterPageState extends State<RegisterPage> {
                           height: 10,
                         ),
                         // phone input
-                        TextFormField(
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(
-                              Icons.phone,
-                              color: softGray,
-                            ),
-                            hintText: "Phone",
-                            hintStyle: const TextStyle(
-                              fontSize: 14,
-                              fontFamily: 'Poppins',
-                            ),
-                            enabledBorder: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
-                            focusedBorder: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
+                        CustomTextFormField(
+                          prefixIcon: Icon(
+                            Icons.phone,
+                            color: softGray,
                           ),
+                          hintText: "Phone",
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter your phone number';
@@ -191,48 +130,32 @@ class _RegisterPageState extends State<RegisterPage> {
                           height: 10,
                         ),
                         // password input
-                        TextFormField(
-                          obscureText: obsecureText,
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(
-                              Icons.lock,
+                        CustomTextFormField(
+                          hintText: "Password",
+                          prefixIcon: Icon(
+                            Icons.lock,
+                            color: softGray,
+                          ),
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                obsecureText = !obsecureText;
+                                icon = obsecureText
+                                    ? Icons.visibility
+                                    : Icons.visibility_off;
+                              });
+                            },
+                            icon: Icon(
+                              icon,
                               color: softGray,
                             ),
-                            suffixIcon: IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  obsecureText = !obsecureText;
-                                  icon = obsecureText
-                                      ? Icons.visibility
-                                      : Icons.visibility_off;
-                                });
-                              },
-                              icon: Icon(
-                                icon,
-                                color: softGray,
-                              ),
-                            ),
-                            hintText: "Password",
-                            hintStyle: const TextStyle(
-                              fontSize: 14,
-                              fontFamily: 'Poppins',
-                            ),
-                            enabledBorder: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
-                            focusedBorder: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
                           ),
+                          obscureText: obsecureText,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter your password';
-                            } else if (value.length < 8) {
-                              return 'Password must be at least 8 characters';
+                            } else if (value.length < 6) {
+                              return 'Password must be at least 6 characters';
                             }
                             return null;
                           },
@@ -307,107 +230,26 @@ class _RegisterPageState extends State<RegisterPage> {
                         Row(
                           children: [
                             Expanded(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(14),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.5),
-                                      spreadRadius: 1,
-                                      blurRadius: 7,
-                                      offset: const Offset(0, 3),
-                                    ),
-                                  ],
-                                  gradient: gradient,
-                                ),
-                                child: ElevatedButton(
+                              child: CustomFilledButton(
+                                  color: const Color(0xffdb3236),
+                                  text: "Google",
                                   onPressed: () {},
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.transparent,
-                                    elevation: 0,
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 15,
-                                    ),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    minimumSize:
-                                        const Size(double.infinity, 50),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      FaIcon(
-                                        FontAwesomeIcons.google,
-                                        color: white,
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        "Google",
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontFamily: 'Poppins',
-                                          color: white,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
+                                  icon: Icon(
+                                    FontAwesomeIcons.google,
+                                    color: white,
+                                  )),
                             ),
                             const SizedBox(
                               width: 10,
                             ),
                             Expanded(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(14),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.5),
-                                      spreadRadius: 1,
-                                      blurRadius: 7,
-                                      offset: const Offset(0, 3),
-                                    ),
-                                  ],
-                                  gradient: gradient,
-                                ),
-                                child: ElevatedButton(
-                                  onPressed: () {},
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.transparent,
-                                    elevation: 0,
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 15,
-                                    ),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    minimumSize:
-                                        const Size(double.infinity, 50),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      FaIcon(
-                                        FontAwesomeIcons.facebook,
-                                        color: white,
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        "Facebook",
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontFamily: 'Poppins',
-                                          color: white,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                              child: CustomFilledButton(
+                                color: const Color(0xff3b5998),
+                                text: "Facebook",
+                                onPressed: () {},
+                                icon: Icon(
+                                  FontAwesomeIcons.facebookF,
+                                  color: white,
                                 ),
                               ),
                             ),
@@ -432,12 +274,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         TextButton(
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const LoginPage(),
-                              ),
-                            );
+                            Navigator.pushNamed(context, '/login');
                           },
                           child: Text(
                             "Login",

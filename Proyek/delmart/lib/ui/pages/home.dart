@@ -1,5 +1,4 @@
 import 'dart:core';
-import 'package:delmart/shared/theme.dart';
 import 'package:delmart/ui/widgets/navbar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +10,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
+// this is the home page
 class _HomePageState extends State<HomePage> {
   String username = 'User';
   late String greeting;
@@ -31,44 +31,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // appBar: AppBar(
-        //   // transparent app bar
-        //   backgroundColor: Colors.white,
-        //   title: Column(
-        //     crossAxisAlignment: CrossAxisAlignment.start,
-        //     children: [
-        //       Text(
-        //         'Hello $username',
-        //         style: const TextStyle(
-        //           color: Colors.black,
-        //           fontSize: 22,
-        //           fontWeight: FontWeight.bold,
-        //         ),
-        //       ),
-        //       Text(
-        //         greeting,
-        //         style: const TextStyle(
-        //           color: Colors.black,
-        //           fontSize: 14,
-        //         ),
-        //       ),
-        //     ],
-        //   ),
-        //   actions: [
-        //     IconButton(
-        //       onPressed: () {},
-        //       icon: const Icon(Icons.notifications),
-        //     ),
-        //     // profile picture
-        //     Container(
-        //       margin: const EdgeInsets.only(right: 10),
-        //       child: const CircleAvatar(
-        //         radius: 20,
-        //         // backgroundImage: AssetImage('assets/images/profile.png'),
-        //       ),
-        //     ),
-        //   ],
-        // ),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -110,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                       margin: const EdgeInsets.only(right: 10),
                       child: const CircleAvatar(
                         radius: 20,
-                        // backgroundImage: AssetImage('assets/images/profile.png'),
+                        backgroundImage: AssetImage('assets/images/blank.png'),
                       ),
                     ),
                   ],

@@ -1,9 +1,14 @@
 import 'package:delmart/shared/theme.dart';
+import 'package:delmart/ui/pages/forgot.dart';
 import 'package:delmart/ui/pages/home.dart';
+import 'package:delmart/ui/widgets/custom_filled_button.dart';
+import 'package:delmart/ui/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart'
+    show FaIcon, FontAwesomeIcons;
 import 'register.dart';
 
+// this is the login page
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -61,27 +66,11 @@ class _LoginPageState extends State<LoginPage> {
                       key: _formKey,
                       child: Column(children: [
                         // email input
-                        TextFormField(
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(
-                              Icons.email,
-                              color: softGray,
-                            ),
-                            hintText: "Email",
-                            hintStyle: const TextStyle(
-                              fontSize: 14,
-                              fontFamily: 'Poppins',
-                            ),
-                            enabledBorder: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
-                            focusedBorder: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
+                        CustomTextFormField(
+                          hintText: "Email",
+                          prefixIcon: Icon(
+                            Icons.email,
+                            color: softGray,
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
@@ -96,43 +85,27 @@ class _LoginPageState extends State<LoginPage> {
                           height: 10,
                         ),
                         // password input
-                        TextFormField(
-                          obscureText: obsecureText,
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(
-                              Icons.lock,
+                        CustomTextFormField(
+                          hintText: "Password",
+                          prefixIcon: Icon(
+                            Icons.lock,
+                            color: softGray,
+                          ),
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                obsecureText = !obsecureText;
+                                icon = obsecureText
+                                    ? Icons.visibility
+                                    : Icons.visibility_off;
+                              });
+                            },
+                            icon: Icon(
+                              icon,
                               color: softGray,
                             ),
-                            suffixIcon: IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  obsecureText = !obsecureText;
-                                  icon = obsecureText
-                                      ? Icons.visibility
-                                      : Icons.visibility_off;
-                                });
-                              },
-                              icon: Icon(
-                                icon,
-                                color: softGray,
-                              ),
-                            ),
-                            hintText: "Password",
-                            hintStyle: const TextStyle(
-                              fontSize: 14,
-                              fontFamily: 'Poppins',
-                            ),
-                            enabledBorder: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
-                            focusedBorder: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
                           ),
+                          obscureText: obsecureText,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter your password';
@@ -165,68 +138,31 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ],
                             ),
-                            Text(
-                              "Forgot Password?",
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontFamily: 'Poppins',
-                                color: orange,
-                                fontWeight: FontWeight.bold,
+                            InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/forgot');
+                              },
+                              child: Text(
+                                "Forgot Password?",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontFamily: 'Poppins',
+                                  color: orange,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ],
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(14),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 1,
-                                blurRadius: 7,
-                                offset: const Offset(0, 3),
-                              ),
-                            ],
-                            gradient: gradient,
-                          ),
-                          child: ElevatedButton(
-                            onPressed: () {
-                              // Validate returns true if the form is valid, or false otherwise.
-                              // if (_formKey.currentState!.validate()) {
-                              //   Navigator.pushReplacement(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //       builder: (context) => const HomePage(),
-                              //     ),
-                              //   );
-                              // }
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const HomePage(),
-                                ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.transparent,
-                              elevation: 0,
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 15,
-                              ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              minimumSize: const Size(double.infinity, 50),
-                            ),
-                            child: Text(
-                              "Login",
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontFamily: 'Poppins',
-                                color: white,
-                              ),
-                            ),
-                          ),
+                        CustomFilledButton(
+                          gradient: gradient,
+                          text: "Login",
+                          onPressed: () {
+                            // Validate returns true if the form is valid, or false otherwise.
+                            if (_formKey.currentState!.validate()) {
+                              Navigator.pushReplacementNamed(context, '/home');
+                            }
+                          },
                         ),
                         const SizedBox(
                           height: 10,
@@ -249,107 +185,26 @@ class _LoginPageState extends State<LoginPage> {
                         Row(
                           children: [
                             Expanded(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(14),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.5),
-                                      spreadRadius: 1,
-                                      blurRadius: 7,
-                                      offset: const Offset(0, 3),
-                                    ),
-                                  ],
-                                  gradient: gradient,
-                                ),
-                                child: ElevatedButton(
+                              child: CustomFilledButton(
+                                  color: const Color(0xffdb3236),
+                                  text: "Google",
                                   onPressed: () {},
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.transparent,
-                                    elevation: 0,
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 15,
-                                    ),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    minimumSize:
-                                        const Size(double.infinity, 50),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      FaIcon(
-                                        FontAwesomeIcons.google,
-                                        color: white,
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        "Google",
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontFamily: 'Poppins',
-                                          color: white,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
+                                  icon: Icon(
+                                    FontAwesomeIcons.google,
+                                    color: white,
+                                  )),
                             ),
                             const SizedBox(
                               width: 10,
                             ),
                             Expanded(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(14),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.5),
-                                      spreadRadius: 1,
-                                      blurRadius: 7,
-                                      offset: const Offset(0, 3),
-                                    ),
-                                  ],
-                                  gradient: gradient,
-                                ),
-                                child: ElevatedButton(
-                                  onPressed: () {},
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.transparent,
-                                    elevation: 0,
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 15,
-                                    ),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    minimumSize:
-                                        const Size(double.infinity, 50),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      FaIcon(
-                                        FontAwesomeIcons.facebook,
-                                        color: white,
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        "Facebook",
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontFamily: 'Poppins',
-                                          color: white,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                              child: CustomFilledButton(
+                                color: const Color(0xff3b5998),
+                                text: "Facebook",
+                                onPressed: () {},
+                                icon: Icon(
+                                  FontAwesomeIcons.facebookF,
+                                  color: white,
                                 ),
                               ),
                             ),
@@ -374,12 +229,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         TextButton(
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const RegisterPage(),
-                              ),
-                            );
+                            Navigator.pushNamed(context, '/register');
                           },
                           child: Text(
                             "Register",

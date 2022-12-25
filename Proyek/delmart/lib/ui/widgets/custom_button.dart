@@ -3,8 +3,7 @@ import 'package:delmart/core/app_export.dart';
 
 class CustomButton extends StatelessWidget {
   CustomButton(
-      {super.key,
-      this.shape,
+      {this.shape,
       this.padding,
       this.variant,
       this.fontStyle,
@@ -80,13 +79,13 @@ class CustomButton extends StatelessWidget {
       return Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          prefixWidget ?? const SizedBox(),
+          prefixWidget ?? SizedBox(),
           Text(
             text ?? "",
             textAlign: TextAlign.center,
             style: _setFontStyle(),
           ),
-          suffixWidget ?? const SizedBox(),
+          suffixWidget ?? SizedBox(),
         ],
       );
     } else {
