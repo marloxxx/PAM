@@ -1,12 +1,9 @@
 import 'package:delmart/shared/theme.dart';
-import 'package:delmart/ui/pages/forgot.dart';
-import 'package:delmart/ui/pages/home.dart';
 import 'package:delmart/ui/widgets/custom_filled_button.dart';
 import 'package:delmart/ui/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart'
-    show FaIcon, FontAwesomeIcons;
-import 'register.dart';
+    show FontAwesomeIcons;
 
 // this is the login page
 class LoginPage extends StatefulWidget {
@@ -19,6 +16,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   bool obsecureText = true;
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   IconData icon = Icons.visibility;
 
   @override
@@ -80,6 +79,8 @@ class _LoginPageState extends State<LoginPage> {
                             }
                             return null;
                           },
+                          controller: emailController,
+                          onSaved: (value) => emailController.text = value!,
                         ),
                         const SizedBox(
                           height: 10,
@@ -105,6 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                               color: softGray,
                             ),
                           ),
+                          controller: emailController,
                           obscureText: obsecureText,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
@@ -114,6 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                             }
                             return null;
                           },
+                          onSaved: (value) => passwordController.text = value!,
                         ),
                         const SizedBox(
                           height: 10,

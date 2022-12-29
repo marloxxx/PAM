@@ -6,7 +6,6 @@ import 'package:delmart/ui/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart'
     show FaIcon, FontAwesomeIcons;
-import 'register.dart';
 
 // this is the verify code page
 class VerifyPage extends StatefulWidget {

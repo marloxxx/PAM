@@ -1,10 +1,8 @@
 import 'package:delmart/shared/theme.dart';
-import 'package:delmart/ui/pages/home.dart';
 import 'package:delmart/ui/widgets/custom_text_form_field.dart';
 import 'package:delmart/ui/widgets/custom_filled_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'login.dart';
 
 // this is the register page
 class RegisterPage extends StatefulWidget {
@@ -16,6 +14,11 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController _nikController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   bool obsecureText = true;
   IconData icon = Icons.visibility;
 
@@ -68,6 +71,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             }
                             return null;
                           },
+                          controller: _nikController,
+                          onSaved: (value) => _nikController.text = value!,
                         ),
                         const SizedBox(
                           height: 10,
@@ -87,6 +92,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             }
                             return null;
                           },
+                          controller: _nameController,
+                          onSaved: (value) => _nameController.text = value!,
                         ),
                         const SizedBox(
                           height: 10,
@@ -106,6 +113,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             }
                             return null;
                           },
+                          controller: _emailController,
+                          onSaved: (value) => _emailController.text = value!,
                         ),
                         const SizedBox(
                           height: 10,
@@ -125,6 +134,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             }
                             return null;
                           },
+                          controller: _phoneController,
+                          onSaved: (value) => _phoneController.text = value!,
                         ),
                         const SizedBox(
                           height: 10,
@@ -159,6 +170,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             }
                             return null;
                           },
+                          controller: _passwordController,
+                          onSaved: (value) => _passwordController.text = value!,
                         ),
                         const SizedBox(
                           height: 10,
@@ -179,14 +192,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           child: ElevatedButton(
                             onPressed: () {
                               // Validate returns true if the form is valid, or false otherwise.
-                              if (_formKey.currentState!.validate()) {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const HomePage(),
-                                  ),
-                                );
-                              }
+                              if (_formKey.currentState!.validate()) {}
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.transparent,

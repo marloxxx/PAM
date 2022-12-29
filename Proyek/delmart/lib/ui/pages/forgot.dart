@@ -1,12 +1,9 @@
 import 'package:delmart/shared/theme.dart';
-import 'package:delmart/ui/pages/home.dart';
-import 'package:delmart/ui/pages/login.dart';
 import 'package:delmart/ui/widgets/custom_filled_button.dart';
 import 'package:delmart/ui/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart'
     show FaIcon, FontAwesomeIcons;
-import 'register.dart';
 
 // this is the forgot password page
 class ForgotPage extends StatefulWidget {
@@ -18,7 +15,7 @@ class ForgotPage extends StatefulWidget {
 
 class _ForgotPageState extends State<ForgotPage> {
   final _formKey = GlobalKey<FormState>();
-  bool obsecureText = true;
+  final TextEditingController _emailController = TextEditingController();
   IconData icon = Icons.visibility;
 
   @override
@@ -70,6 +67,8 @@ class _ForgotPageState extends State<ForgotPage> {
                             }
                             return null;
                           },
+                          controller: _emailController,
+                          onSaved: (value) => _emailController.text = value!,
                         ),
                         const SizedBox(
                           height: 20,
@@ -79,14 +78,7 @@ class _ForgotPageState extends State<ForgotPage> {
                           text: "Send",
                           onPressed: () {
                             // Validate returns true if the form is valid, or false otherwise.
-                            if (_formKey.currentState!.validate()) {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const HomePage(),
-                                ),
-                              );
-                            }
+                            if (_formKey.currentState!.validate()) {}
                           },
                         ),
                         const SizedBox(
