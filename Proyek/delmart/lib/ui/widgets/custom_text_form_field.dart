@@ -12,9 +12,7 @@ class CustomTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final String? Function(String?)? onSaved;
-  final String? Function(String?)? onChanged;
   final bool? enabled;
-  final bool autofocus;
 
   const CustomTextFormField({
     Key? key,
@@ -40,9 +38,7 @@ class CustomTextFormField extends StatelessWidget {
     this.controller,
     this.validator,
     this.onSaved,
-    this.onChanged,
     this.enabled,
-    this.autofocus = false,
   }) : super(key: key);
 
   @override
@@ -58,12 +54,6 @@ class CustomTextFormField extends StatelessWidget {
         focusedBorder: focusedBorder,
       ),
       validator: validator,
-      onSaved: onSaved,
-      onChanged: onChanged,
-      keyboardType: keyboardType,
-      controller: controller,
-      enabled: enabled,
-      autofocus: autofocus,
     );
   }
 }
