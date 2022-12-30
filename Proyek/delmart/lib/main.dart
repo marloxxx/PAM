@@ -10,8 +10,13 @@ import 'package:flutter/material.dart';
 import 'package:delmart/ui/pages/splash.dart';
 import 'package:delmart/ui/pages/product_detail.dart';
 import 'package:delmart/ui/pages/cart.dart';
+import 'package:delmart/ui/pages/checkout.dart';
+import 'package:delmart/ui/pages/order_success.dart';
+import 'package:delmart/ui/pages/request_success.dart';
 import 'package:delmart/ui/pages/room.dart';
 import 'package:delmart/ui/pages/room_detail.dart';
+import 'package:delmart/ui/pages/my_orders.dart';
+import 'package:delmart/ui/pages/my_requests.dart';
 import 'package:delmart/ui/pages/profile.dart';
 
 Future<void> main() async => runApp(const MyApp());
@@ -38,6 +43,11 @@ class MyApp extends StatelessWidget {
         '/room': (context) => const RoomPage(),
         '/room_detail': (context) => const RoomDetailPage(),
         '/cart': (context) => const CartPage(),
+        '/checkout': (context) => const CheckOutPage(),
+        '/order_success': (context) => const OrderSuccessPage(),
+        '/request_success': (context) => const RequestSuccessPage(),
+        '/my_orders': (context) => const MyOrdersPage(),
+        '/my_requests': (context) => const MyRequestsPage(),
         '/profile': (context) => const ProfilePage(),
       },
     );

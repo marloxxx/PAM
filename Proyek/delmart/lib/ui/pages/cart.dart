@@ -264,7 +264,9 @@ class _CartPageState extends State<CartPage> {
               Container(
                 margin: const EdgeInsets.only(top: 20),
                 child: CustomFilledButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/checkout');
+                  },
                   gradient: gradient,
                   text: 'Checkout',
                 ),

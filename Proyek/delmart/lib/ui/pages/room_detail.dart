@@ -225,7 +225,9 @@ class RoomDetailPageState extends State<RoomDetailPage> {
               Icons.bookmark_add_outlined,
               color: Colors.white,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, '/request_success');
+            },
           ),
         ),
       ),

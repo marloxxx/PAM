@@ -1,8 +1,8 @@
 import 'package:delmart/ui/widgets/custom_button.dart';
 import 'package:delmart/ui/widgets/navbar.dart';
 import 'package:flutter/material.dart';
-import 'package:delmart/ui/widgets/custom_text_form_field.dart';
 import 'package:delmart/shared/theme.dart';
+import 'package:delmart/ui/widgets/card_item_menu.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -12,6 +12,8 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  String _name = 'Theo Jelek';
+  String _email = 'theojelek@gmail.com';
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -50,6 +52,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                       margin: const EdgeInsets.only(left: 20),
                                       width: 130,
                                       height: 130,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(50),
+                                      ),
                                       child: const CircleAvatar(
                                         radius: 50,
                                         backgroundImage: AssetImage(
@@ -64,7 +69,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         width: 40,
                                         height: 40,
                                         decoration: BoxDecoration(
-                                          color: orange,
+                                          gradient: gradient,
                                           borderRadius:
                                               BorderRadius.circular(50),
                                           border: Border.all(
@@ -84,11 +89,19 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                             const SizedBox(height: 10),
                             Text(
-                              'John Doe',
+                              _name,
                               style: TextStyle(
-                                color: dark,
-                                fontSize: 20,
+                                color: white,
+                                fontSize: 22,
                                 fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 5),
+                            Text(
+                              _email,
+                              style: TextStyle(
+                                color: white,
+                                fontSize: 14,
                               ),
                             ),
                             const SizedBox(height: 10),
@@ -108,172 +121,25 @@ class _ProfilePageState extends State<ProfilePage> {
                           children: [
                             // list menu
                             // account info
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Container(
-                                      height: 50,
-                                      width: 50,
-                                      margin: const EdgeInsets.only(
-                                        left: 20,
-                                        top: 20,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: orange,
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      child: Icon(
-                                        Icons.person,
-                                        color: white,
-                                        size: 30,
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.only(
-                                        left: 20,
-                                        top: 20,
-                                      ),
-                                      child: CustomButton(
-                                        child: Text(
-                                          'Account Info',
-                                          style: TextStyle(
-                                            color: dark,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        onPressed: () {},
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  margin: const EdgeInsets.only(
-                                    left: 20,
-                                    top: 20,
-                                    right: 20,
-                                  ),
-                                  child: Icon(
-                                    Icons.arrow_forward_ios,
-                                    color: dark,
-                                    size: 20,
-                                  ),
-                                ),
-                              ],
+                            const CardItemMenu(
+                              icon: Icons.person,
+                              title: 'Account Info',
                             ),
                             // my orders
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Container(
-                                      height: 50,
-                                      width: 50,
-                                      margin: const EdgeInsets.only(
-                                        left: 20,
-                                        top: 20,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: orange,
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      child: Icon(
-                                        Icons.shopping_cart,
-                                        color: white,
-                                        size: 30,
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.only(
-                                        left: 20,
-                                        top: 20,
-                                      ),
-                                      child: CustomButton(
-                                        child: Text(
-                                          'My Orders',
-                                          style: TextStyle(
-                                            color: dark,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        onPressed: () {},
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  margin: const EdgeInsets.only(
-                                    left: 20,
-                                    top: 20,
-                                    right: 20,
-                                  ),
-                                  child: Icon(
-                                    Icons.arrow_forward_ios,
-                                    color: dark,
-                                    size: 20,
-                                  ),
-                                ),
-                              ],
+                            CardItemMenu(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/my_orders');
+                              },
+                              icon: Icons.shopping_cart,
+                              title: 'My Orders',
                             ),
                             // my requests
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Container(
-                                      height: 50,
-                                      width: 50,
-                                      margin: const EdgeInsets.only(
-                                        left: 20,
-                                        top: 20,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: orange,
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      child: Icon(
-                                        Icons.bookmark,
-                                        color: white,
-                                        size: 30,
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.only(
-                                        left: 20,
-                                        top: 20,
-                                      ),
-                                      child: CustomButton(
-                                        child: Text(
-                                          'My Requests',
-                                          style: TextStyle(
-                                            color: dark,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        onPressed: () {},
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  margin: const EdgeInsets.only(
-                                    left: 20,
-                                    top: 20,
-                                    right: 20,
-                                  ),
-                                  child: Icon(
-                                    Icons.arrow_forward_ios,
-                                    color: dark,
-                                    size: 20,
-                                  ),
-                                ),
-                              ],
+                            CardItemMenu(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/my_requests');
+                              },
+                              icon: Icons.bookmark,
+                              title: 'My Requests',
                             ),
                             const SizedBox(height: 20),
                           ],
@@ -289,177 +155,24 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                         ),
                         child: Column(
-                          children: [
+                          children: const [
                             // list menu
                             // settings
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Container(
-                                      height: 50,
-                                      width: 50,
-                                      margin: const EdgeInsets.only(
-                                        left: 20,
-                                        top: 20,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: orange,
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      child: Icon(
-                                        Icons.settings,
-                                        color: white,
-                                        size: 30,
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.only(
-                                        left: 20,
-                                        top: 20,
-                                      ),
-                                      child: CustomButton(
-                                        child: Text(
-                                          'Settings',
-                                          style: TextStyle(
-                                            color: dark,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        onPressed: () {},
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  margin: const EdgeInsets.only(
-                                    left: 20,
-                                    top: 20,
-                                    right: 20,
-                                  ),
-                                  child: Icon(
-                                    Icons.arrow_forward_ios,
-                                    color: dark,
-                                    size: 20,
-                                  ),
-                                ),
-                              ],
+                            CardItemMenu(
+                              icon: Icons.settings,
+                              title: 'Settings',
                             ),
                             // help center
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Container(
-                                      height: 50,
-                                      width: 50,
-                                      margin: const EdgeInsets.only(
-                                        left: 20,
-                                        top: 20,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: orange,
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      child: Icon(
-                                        Icons.help,
-                                        color: white,
-                                        size: 30,
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.only(
-                                        left: 20,
-                                        top: 20,
-                                      ),
-                                      child: CustomButton(
-                                        child: Text(
-                                          'Help Center',
-                                          style: TextStyle(
-                                            color: dark,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        onPressed: () {},
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  margin: const EdgeInsets.only(
-                                    left: 20,
-                                    top: 20,
-                                    right: 20,
-                                  ),
-                                  child: Icon(
-                                    Icons.arrow_forward_ios,
-                                    color: dark,
-                                    size: 20,
-                                  ),
-                                ),
-                              ],
+                            CardItemMenu(
+                              icon: Icons.help,
+                              title: 'Help Center',
                             ),
                             // contact us
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Container(
-                                      height: 50,
-                                      width: 50,
-                                      margin: const EdgeInsets.only(
-                                        left: 20,
-                                        top: 20,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: orange,
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      child: Icon(
-                                        Icons.phone,
-                                        color: white,
-                                        size: 30,
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.only(
-                                        left: 20,
-                                        top: 20,
-                                      ),
-                                      child: CustomButton(
-                                        child: Text(
-                                          'Contact Us',
-                                          style: TextStyle(
-                                            color: dark,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        onPressed: () {},
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  margin: const EdgeInsets.only(
-                                    left: 20,
-                                    top: 20,
-                                    right: 20,
-                                  ),
-                                  child: Icon(
-                                    Icons.arrow_forward_ios,
-                                    color: dark,
-                                    size: 20,
-                                  ),
-                                ),
-                              ],
+                            CardItemMenu(
+                              icon: Icons.phone,
+                              title: 'Contact Us',
                             ),
-                            const SizedBox(height: 20),
+                            SizedBox(height: 20),
                           ],
                         ),
                       ),
@@ -473,65 +186,14 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                         ),
                         child: Column(
-                          children: [
+                          children: const [
                             // list menu
                             // logout
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Container(
-                                      height: 50,
-                                      width: 50,
-                                      margin: const EdgeInsets.only(
-                                        left: 20,
-                                        top: 20,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: orange,
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      child: Icon(
-                                        Icons.logout,
-                                        color: white,
-                                        size: 30,
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.only(
-                                        left: 20,
-                                        top: 20,
-                                      ),
-                                      child: CustomButton(
-                                        child: Text(
-                                          'Logout',
-                                          style: TextStyle(
-                                            color: dark,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        onPressed: () {},
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  margin: const EdgeInsets.only(
-                                    left: 20,
-                                    top: 20,
-                                    right: 20,
-                                  ),
-                                  child: Icon(
-                                    Icons.arrow_forward_ios,
-                                    color: dark,
-                                    size: 20,
-                                  ),
-                                ),
-                              ],
+                            CardItemMenu(
+                              icon: Icons.logout,
+                              title: 'Logout',
                             ),
-                            const SizedBox(height: 20),
+                            SizedBox(height: 20),
                           ],
                         ),
                       ),
