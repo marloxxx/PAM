@@ -56,17 +56,19 @@ class _ProductItemState extends State<ProductItem> {
                     children: [
                       Text(
                         widget.productList![index].name,
-                        softWrap: false,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
                         style: const TextStyle(
                           color: Colors.black,
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(
-                        height: 10,
+                      // category
+                      Text(
+                        widget.productList![index].category,
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
+                        ),
                       ),
                       Text(
                         'Rp. ${widget.productList![index].price}',

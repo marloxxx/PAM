@@ -40,18 +40,16 @@ class CheckoutItem extends StatelessWidget {
                   ),
                 ),
               ),
-              Expanded(
-                child: Container(
-                  margin: const EdgeInsets.only(left: 20),
+              Container(
+                margin: const EdgeInsets.only(left: 20),
+                width: MediaQuery.of(context).size.width * 0.5,
+                child: Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       // product name
                       Text(
                         cart.product.name,
-                        softWrap: false,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
