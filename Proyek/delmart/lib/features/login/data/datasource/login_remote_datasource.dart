@@ -3,14 +3,14 @@ import 'package:google_sign_in/google_sign_in.dart';
 import '../../../../core/failure.dart';
 import '../../../../core/request.dart';
 import '../../../../core/service_locator.dart';
-import '../models/user_model.dart' as auth;
+import '../models/user_model.dart';
 
 final GoogleSignIn _googleSignIn = GoogleSignIn();
 
 abstract class LoginRemoteDataSource {
-  Future<Either<Failure, auth.User>> loginUser({required auth.User user});
-  Future<Either<Failure, auth.User>> loginUserWithGoogle();
-  Future<Either<Failure, auth.User>> loginUserWithFacebook();
+  Future<Either<Failure, User>> loginUser({required User user});
+  Future<Either<Failure, User>> loginUserWithGoogle();
+  Future<Either<Failure, User>> loginUserWithFacebook();
 }
 
 class LoginRemoteDataSourceImpl implements LoginRemoteDataSource {
@@ -18,8 +18,7 @@ class LoginRemoteDataSourceImpl implements LoginRemoteDataSource {
 
   // normal login
   @override
-  Future<Either<Failure, auth.User>> loginUser(
-      {required auth.User user}) async {
+  Future<Either<Failure, User>> loginUser({required User user}) async {
     try {
       final response = await request.post(
         '/auth/login',
@@ -30,7 +29,7 @@ class LoginRemoteDataSourceImpl implements LoginRemoteDataSource {
         request.updateAuthorization(response.data['data']['access_token']);
         var data = response.data['data']['user'];
         data['token'] = response.data['data']['access_token'];
-        return Right(auth.User.fromJson(data));
+        return Right(User.fromJson(data));
       }
       return Left(ConnectionFailure(response.data['message']));
     } catch (e) {
@@ -42,7 +41,7 @@ class LoginRemoteDataSourceImpl implements LoginRemoteDataSource {
 
   // google login
   @override
-  Future<Either<Failure, auth.User>> loginUserWithGoogle() async {
+  Future<Either<Failure, User>> loginUserWithGoogle() async {
     try {
       final GoogleSignInAccount? googleSignInAccount =
           await _googleSignIn.signIn();
@@ -61,7 +60,7 @@ class LoginRemoteDataSourceImpl implements LoginRemoteDataSource {
           request.updateAuthorization(response.data['data']['access_token']);
           var data = response.data['data']['user'];
           data['token'] = response.data['data']['access_token'];
-          return Right(auth.User.fromJson(data));
+          return Right(User.fromJson(data));
         } else {
           return Left(ConnectionFailure(response.data['message']));
         }
@@ -79,7 +78,7 @@ class LoginRemoteDataSourceImpl implements LoginRemoteDataSource {
 
   // facebook login
   @override
-  Future<Either<Failure, auth.User>> loginUserWithFacebook() async {
+  Future<Either<Failure, User>> loginUserWithFacebook() async {
     try {
       final response = await request.post(
         '/auth/facebook',
@@ -88,7 +87,7 @@ class LoginRemoteDataSourceImpl implements LoginRemoteDataSource {
         request.updateAuthorization(response.data['data']['access_token']);
         var data = response.data['data']['user'];
         data['token'] = response.data['data']['access_token'];
-        return Right(auth.User.fromJson(data));
+        return Right(User.fromJson(data));
       }
       return Left(ConnectionFailure(response.data['message']));
     } catch (e) {
