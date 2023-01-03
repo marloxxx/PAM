@@ -143,129 +143,134 @@ class _RoomDetailScreenState extends State<RoomDetailScreen> {
                 child: Container(
                   margin: const EdgeInsets.only(top: 10),
                   padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: Column(
-                    children: [
-                      // room image
-                      Container(
-                        height: 218,
-                        width: 311,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(
-                            color: softGray,
-                          ),
-                          image: DecorationImage(
-                            image: NetworkImage(state.room.image),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      // room name
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          state.room.name,
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: dark,
+                  child: Expanded(
+                    child: Column(
+                      children: [
+                        // room image
+                        Container(
+                          height: 218,
+                          width: 311,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(
+                              color: softGray,
+                            ),
+                            image: DecorationImage(
+                              image: NetworkImage(state.room.image),
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      // room description
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          state.room.description,
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            color: dark,
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        // room name
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            state.room.name,
+                            softWrap: false,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              color: dark,
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        // room description
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            state.room.description,
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                              color: dark,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
 
-                      Form(
-                        key: _formKey,
-                        child: Column(
-                          children: [
-                            // reason input
-                            CustomTextFormField(
-                              hintText: "Keterangan Keperluan",
-                              controller: _descriptionController,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return "Keterangan Keperluan tidak boleh kosong";
-                                }
-                                return null;
-                              },
-                              onSaved: (value) =>
-                                  _descriptionController.text = value!,
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            // start date input
-                            CustomTextFormField(
-                              hintText: "Tanggal Mulai",
-                              controller: _startDateController,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return "Tanggal Mulai tidak boleh kosong";
-                                }
-                                return null;
-                              },
-                              suffixIcon: IconButton(
-                                icon: Icon(
-                                  Icons.calendar_today,
-                                  color: softGray,
-                                ),
-                                onPressed: () async {
-                                  _pickStartDateTime(context);
+                        Form(
+                          key: _formKey,
+                          child: Column(
+                            children: [
+                              // reason input
+                              CustomTextFormField(
+                                hintText: "Keterangan Keperluan",
+                                controller: _descriptionController,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return "Keterangan Keperluan tidak boleh kosong";
+                                  }
+                                  return null;
                                 },
+                                onSaved: (value) =>
+                                    _descriptionController.text = value!,
                               ),
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            // end date input
-                            CustomTextFormField(
-                              hintText: "Tanggal Selesai",
-                              controller: _endDateController,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return "Tanggal Selesai tidak boleh kosong";
-                                }
-                                return null;
-                              },
-                              suffixIcon: IconButton(
-                                icon: Icon(
-                                  Icons.calendar_today,
-                                  color: softGray,
-                                ),
-                                onPressed: () async {
-                                  _pickEndDateTime(context);
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              // start date input
+                              CustomTextFormField(
+                                hintText: "Tanggal Mulai",
+                                controller: _startDateController,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return "Tanggal Mulai tidak boleh kosong";
+                                  }
+                                  return null;
                                 },
+                                suffixIcon: IconButton(
+                                  icon: Icon(
+                                    Icons.calendar_today,
+                                    color: softGray,
+                                  ),
+                                  onPressed: () async {
+                                    _pickStartDateTime(context);
+                                  },
+                                ),
                               ),
-                            ),
-                          ],
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              // end date input
+                              CustomTextFormField(
+                                hintText: "Tanggal Selesai",
+                                controller: _endDateController,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return "Tanggal Selesai tidak boleh kosong";
+                                  }
+                                  return null;
+                                },
+                                suffixIcon: IconButton(
+                                  icon: Icon(
+                                    Icons.calendar_today,
+                                    color: softGray,
+                                  ),
+                                  onPressed: () async {
+                                    _pickEndDateTime(context);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                    ],
+                        const SizedBox(
+                          height: 20,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

@@ -40,43 +40,48 @@ class CheckoutItem extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.only(left: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // product name
-                    Text(
-                      cart.product.name,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+              Expanded(
+                child: Container(
+                  margin: const EdgeInsets.only(left: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // product name
+                      Text(
+                        cart.product.name,
+                        softWrap: false,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    // product category
-                    Text(
-                      cart.product.category,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey,
+                      // product category
+                      Text(
+                        cart.product.category,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey,
+                        ),
                       ),
-                    ),
-                    // quantity
-                    Text(
-                      'Quantity: ${cart.quantity}',
-                      style: const TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey,
+                      // quantity
+                      Text(
+                        'Quantity: ${cart.quantity}',
+                        style: const TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey,
+                        ),
                       ),
-                    ),
-                    Text(
-                      'Rp. ${cart.product.price * cart.quantity}',
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                      Text(
+                        'Rp. ${cart.product.price * cart.quantity}',
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],

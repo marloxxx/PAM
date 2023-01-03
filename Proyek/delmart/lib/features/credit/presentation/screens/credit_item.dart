@@ -22,27 +22,35 @@ class CreditItem extends StatelessWidget {
             color: Colors.grey.withOpacity(0.2),
           ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              credit.nominal,
-              style: TextStyle(
-                color: dark,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+        child: Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                credit.nominal,
+                softWrap: false,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+                style: TextStyle(
+                  color: dark,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            const SizedBox(height: 5),
-            Text(
-              'Rp. ${credit.price}',
-              style: TextStyle(
-                color: dark,
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
+              const SizedBox(height: 5),
+              Text(
+                'Rp. ${credit.price}',
+                softWrap: false,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+                style: TextStyle(
+                  color: dark,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

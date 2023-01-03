@@ -29,7 +29,7 @@ class _RoomItemState extends State<RoomItem> {
           mainAxisSpacing: 10,
         ),
         shrinkWrap: true,
-        physics: const AlwaysScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (BuildContext context, int index) {
           return InkWell(
             onTap: () {

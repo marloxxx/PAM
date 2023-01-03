@@ -17,7 +17,7 @@ class _ProductItemState extends State<ProductItem> {
   Widget build(BuildContext context) {
     return ListView.builder(
       shrinkWrap: true,
-      physics: const AlwaysScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: widget.productList!.length,
       itemBuilder: (context, index) {
         return InkWell(
@@ -50,31 +50,36 @@ class _ProductItemState extends State<ProductItem> {
                   width: 10,
                 ),
                 // name, distributor, price, rating
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      widget.productList![index].name,
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        widget.productList![index].name,
+                        softWrap: false,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'Rp. ${widget.productList![index].price}',
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 14,
+                      const SizedBox(
+                        height: 10,
                       ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                  ],
+                      Text(
+                        'Rp. ${widget.productList![index].price}',
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

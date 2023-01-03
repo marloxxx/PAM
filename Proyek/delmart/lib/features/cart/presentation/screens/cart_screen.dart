@@ -147,140 +147,154 @@ class _CartScreenState extends State<CartScreen> {
                                         Container(
                                           margin:
                                               const EdgeInsets.only(left: 20),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              // product name
-                                              Text(
-                                                product.product.name,
-                                                style: const TextStyle(
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.bold,
+                                          child: Expanded(
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                // product name
+                                                Text(
+                                                  product.product.name,
+                                                  softWrap: false,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  maxLines: 2,
+                                                  style: const TextStyle(
+                                                    fontSize: 18,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
                                                 ),
-                                              ),
-                                              // product category
-                                              Text(
-                                                product.product.category,
-                                                style: const TextStyle(
-                                                  fontSize: 14,
-                                                  color: Colors.grey,
+                                                // product category
+                                                Text(
+                                                  product.product.category,
+                                                  style: const TextStyle(
+                                                    fontSize: 14,
+                                                    color: Colors.grey,
+                                                  ),
                                                 ),
-                                              ),
-                                              const SizedBox(height: 10),
-                                              Text(
-                                                'Rp. ${product.price}',
-                                                style: const TextStyle(
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.bold,
+                                                const SizedBox(height: 10),
+                                                Text(
+                                                  'Rp. ${product.price}',
+                                                  style: const TextStyle(
+                                                    fontSize: 18,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
                                                 ),
-                                              ),
-                                              const SizedBox(height: 10),
-                                              Container(
-                                                margin: const EdgeInsets.only(
-                                                    top: 10),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.end,
-                                                  children: [
-                                                    // delete button
-                                                    CustomButton(
-                                                      onPressed: () {
-                                                        deleteProduct(
-                                                            product, context);
-                                                      },
-                                                      height: 30,
-                                                      decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
-                                                        border: Border.all(
-                                                          color: Colors.grey
-                                                              .withOpacity(0.2),
+                                                const SizedBox(height: 10),
+                                                Container(
+                                                  margin: const EdgeInsets.only(
+                                                      top: 10),
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.end,
+                                                    children: [
+                                                      // delete button
+                                                      CustomButton(
+                                                        onPressed: () {
+                                                          deleteProduct(
+                                                              product, context);
+                                                        },
+                                                        height: 30,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(5),
+                                                          border: Border.all(
+                                                            color: Colors.grey
+                                                                .withOpacity(
+                                                                    0.2),
+                                                          ),
+                                                        ),
+                                                        child: const Icon(
+                                                          Icons.delete,
+                                                          color: Colors.grey,
                                                         ),
                                                       ),
-                                                      child: const Icon(
-                                                        Icons.delete,
-                                                        color: Colors.grey,
+                                                      const SizedBox(width: 10),
+                                                      Row(
+                                                        children: [
+                                                          CustomButton(
+                                                            onPressed: () {
+                                                              decreaseQuantity(
+                                                                  product,
+                                                                  context);
+                                                            },
+                                                            width: 30,
+                                                            height: 30,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5),
+                                                              border:
+                                                                  Border.all(
+                                                                color: Colors
+                                                                    .grey
+                                                                    .withOpacity(
+                                                                        0.2),
+                                                              ),
+                                                            ),
+                                                            child: const Icon(
+                                                              Icons.remove,
+                                                              color:
+                                                                  Colors.grey,
+                                                            ),
+                                                          ),
+                                                          Container(
+                                                            margin:
+                                                                const EdgeInsets
+                                                                        .only(
+                                                                    left: 10,
+                                                                    right: 10),
+                                                            child: Text(
+                                                              product.quantity
+                                                                  .toString(),
+                                                              style:
+                                                                  const TextStyle(
+                                                                fontSize: 18,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          CustomButton(
+                                                            onPressed: () {
+                                                              increaseQuantity(
+                                                                  product,
+                                                                  context);
+                                                            },
+                                                            width: 30,
+                                                            height: 30,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5),
+                                                              border:
+                                                                  Border.all(
+                                                                color: Colors
+                                                                    .grey
+                                                                    .withOpacity(
+                                                                        0.2),
+                                                              ),
+                                                            ),
+                                                            child: const Icon(
+                                                              Icons.add,
+                                                              color:
+                                                                  Colors.grey,
+                                                            ),
+                                                          ),
+                                                        ],
                                                       ),
-                                                    ),
-                                                    const SizedBox(width: 10),
-                                                    Row(
-                                                      children: [
-                                                        CustomButton(
-                                                          onPressed: () {
-                                                            decreaseQuantity(
-                                                                product,
-                                                                context);
-                                                          },
-                                                          width: 30,
-                                                          height: 30,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        5),
-                                                            border: Border.all(
-                                                              color: Colors.grey
-                                                                  .withOpacity(
-                                                                      0.2),
-                                                            ),
-                                                          ),
-                                                          child: const Icon(
-                                                            Icons.remove,
-                                                            color: Colors.grey,
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          margin:
-                                                              const EdgeInsets
-                                                                      .only(
-                                                                  left: 10,
-                                                                  right: 10),
-                                                          child: Text(
-                                                            product.quantity
-                                                                .toString(),
-                                                            style:
-                                                                const TextStyle(
-                                                              fontSize: 18,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        CustomButton(
-                                                          onPressed: () {
-                                                            increaseQuantity(
-                                                                product,
-                                                                context);
-                                                          },
-                                                          width: 30,
-                                                          height: 30,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        5),
-                                                            border: Border.all(
-                                                              color: Colors.grey
-                                                                  .withOpacity(
-                                                                      0.2),
-                                                            ),
-                                                          ),
-                                                          child: const Icon(
-                                                            Icons.add,
-                                                            color: Colors.grey,
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ],
