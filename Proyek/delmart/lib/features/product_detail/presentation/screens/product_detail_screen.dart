@@ -87,165 +87,163 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 child: Container(
                   margin: const EdgeInsets.only(top: 10),
                   padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: Expanded(
-                    child: Column(
-                      children: [
-                        // product image
-                        Container(
-                          height: 218,
-                          width: 311,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(
-                              color: softGray,
-                            ),
-                            image: DecorationImage(
-                              image: NetworkImage(state.product.image),
-                              fit: BoxFit.cover,
-                            ),
+                  child: Column(
+                    children: [
+                      // product image
+                      Container(
+                        height: 218,
+                        width: 311,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(
+                            color: softGray,
+                          ),
+                          image: DecorationImage(
+                            image: NetworkImage(state.product.image),
+                            fit: BoxFit.cover,
                           ),
                         ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        // product category
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            state.product.category,
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: orange,
-                            ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      // product category
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          state.product.category,
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: orange,
                           ),
                         ),
-                        const SizedBox(
-                          height: 8,
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      // product name
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          state.product.name,
+                          softWrap: false,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            color: dark,
+                          ),
                         ),
-                        // product name
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            state.product.name,
-                            softWrap: false,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 2,
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          // product price
+                          Text(
+                            "Rp ${state.product.price}",
                             style: TextStyle(
                               fontFamily: 'Poppins',
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
                               color: dark,
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            // product price
-                            Text(
-                              "Rp ${state.product.price}",
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: dark,
-                              ),
-                            ),
-                            // step counter
-                            Row(
-                              children: [
-                                // minus button
-                                InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      if (_quantity > 0) {
-                                        _quantity--;
-                                      }
-                                    });
-                                  },
-                                  child: Container(
-                                    width: 30,
-                                    height: 30,
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: softGray,
-                                      ),
-                                      borderRadius: BorderRadius.circular(5),
+                          // step counter
+                          Row(
+                            children: [
+                              // minus button
+                              InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    if (_quantity > 0) {
+                                      _quantity--;
+                                    }
+                                  });
+                                },
+                                child: Container(
+                                  width: 30,
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: softGray,
                                     ),
-                                    child: Icon(
-                                      Icons.remove,
-                                      color: dark,
-                                    ),
+                                    borderRadius: BorderRadius.circular(5),
                                   ),
-                                ),
-                                const SizedBox(
-                                  width: 15,
-                                ),
-                                // counter
-                                Text(
-                                  _quantity.toString(),
-                                  style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
+                                  child: Icon(
+                                    Icons.remove,
                                     color: dark,
                                   ),
                                 ),
-                                const SizedBox(
-                                  width: 15,
+                              ),
+                              const SizedBox(
+                                width: 15,
+                              ),
+                              // counter
+                              Text(
+                                _quantity.toString(),
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: dark,
                                 ),
-                                // plus button
-                                InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      _quantity++;
-                                    });
-                                  },
-                                  child: Container(
-                                    width: 30,
-                                    height: 30,
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: softGray,
-                                      ),
-                                      borderRadius: BorderRadius.circular(5),
+                              ),
+                              const SizedBox(
+                                width: 15,
+                              ),
+                              // plus button
+                              InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    _quantity++;
+                                  });
+                                },
+                                child: Container(
+                                  width: 30,
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: softGray,
                                     ),
-                                    child: Icon(
-                                      Icons.add,
-                                      color: dark,
-                                    ),
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                  child: Icon(
+                                    Icons.add,
+                                    color: dark,
                                   ),
                                 ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        // product description
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            state.product.description,
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              color: dark,
-                            ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      // product description
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          state.product.description,
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: dark,
                           ),
                         ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                      ],
-                    ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                    ],
                   ),
                 ),
               ),
